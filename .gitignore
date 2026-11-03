@@ -1,0 +1,8 @@
+.DS_Store
+instalar-config.json
+*.ipk
+*.zip
+ipk-build-*/
+INSTRUCTIVO-DOCKER.md
+LEEME.txt
+guia-instalacion.html

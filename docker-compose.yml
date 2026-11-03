@@ -1,0 +1,23 @@
+services:
+  xupertv:
+    image: nginx:1.27-alpine
+    ports:
+      - "8090:80"
+    volumes:
+      - ./ipk-extraido/data/usr/palm/applications/com.webosflux.xuptertv.fidelity:/usr/share/nginx/html:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost/index.html"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  tests:
+    build:
+      context: ./docker/tests
+    environment:
+      BASE_URL: http://xupertv
+    depends_on:
+      xupertv:
+        condition: service_healthy
+    profiles:
+      - test

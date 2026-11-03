@@ -1,0 +1,10 @@
+{
+  "name": "xupertv-responsive-tests",
+  "private": true,
+  "scripts": {
+    "test": "node test-responsive.js"
+  },
+  "dependencies": {
+    "playwright": "1.51.1"
+  }
+}
